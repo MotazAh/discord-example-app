@@ -1,10 +1,14 @@
 import 'dotenv/config';
 
 export async function DiscordRequest(endpoint, options) {
+  console.log("Sending discord request")
+  console.log("Endpoint: " + endpoint)
+  
   // append endpoint to root API URL
   const url = 'https://discord.com/api/v10/' + endpoint;
   // Stringify payloads
   if (options.body) options.body = JSON.stringify(options.body);
+  console.log("Options: " + options.body)
   // Use fetch to make requests
   const res = await fetch(url, {
     headers: {
@@ -45,3 +49,4 @@ export function getRandomEmoji() {
 export function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
